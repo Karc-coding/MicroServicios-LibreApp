@@ -16,6 +16,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -69,6 +70,7 @@ public class Usuario implements Serializable {
 	private String address;
 	
 	@Temporal(TemporalType.DATE)
+	@Past(message = "El campo fecha de cumpleaños no acepta fechas futuras")
 	@Column(name = "date_birth", nullable = true)
 	private Date dateBirth;
 	

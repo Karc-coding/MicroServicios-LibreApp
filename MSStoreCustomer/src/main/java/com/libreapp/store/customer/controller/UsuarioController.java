@@ -29,13 +29,13 @@ public class UsuarioController {
 
 	@Autowired
 	private UsuarioService usuarioService;
-	
+
 	@GetMapping("/{id}")
 	@ResponseBody
-	public ResponseEntity<Map<String, Object>> getCustomer(@PathVariable("id") String id){
-		
+	public ResponseEntity<Map<String, Object>> getCustomer(@PathVariable("id") String id) {
+
 		Map<String, Object> result = new HashMap<>();
-		
+
 		try {
 			Usuario usuario = usuarioService.getUsuario(id);
 			if (usuario == null) {
@@ -49,13 +49,13 @@ public class UsuarioController {
 		}
 		return ResponseEntity.ok(result);
 	}
-	
+
 	@GetMapping("/listAll")
 	@ResponseBody
-	public ResponseEntity<Map<String, Object>> listAllCustomers(){
-		
+	public ResponseEntity<Map<String, Object>> listAllCustomers() {
+
 		Map<String, Object> result = new HashMap<>();
-		
+
 		try {
 			List<Usuario> list = usuarioService.listAll();
 			if (CollectionUtils.isEmpty(list)) {
@@ -69,13 +69,13 @@ public class UsuarioController {
 		}
 		return ResponseEntity.ok(result);
 	}
-	
+
 	@PostMapping("/create")
 	@ResponseBody
-	public ResponseEntity<Map<String, Object>> createCustomer(@RequestBody Usuario user){
+	public ResponseEntity<Map<String, Object>> createCustomer(@RequestBody Usuario user) {
 
 		Map<String, Object> result = new HashMap<>();
-		
+
 		try {
 			Usuario usuario = usuarioService.createUsuario(user);
 			if (usuario == null) {
@@ -89,13 +89,14 @@ public class UsuarioController {
 		}
 		return ResponseEntity.ok(result);
 	}
-	
+
 	@PutMapping("/update/{id}")
 	@ResponseBody
-	public ResponseEntity<Map<String, Object>> updateCustomer(@PathVariable("id") String id,@RequestBody Usuario user){
-		
+	public ResponseEntity<Map<String, Object>> updateCustomer(@PathVariable("id") String id,
+			@RequestBody Usuario user) {
+
 		Map<String, Object> result = new HashMap<>();
-		
+
 		try {
 			user.setId(id);
 			Usuario usuario = usuarioService.updateUsuario(user);
@@ -110,13 +111,13 @@ public class UsuarioController {
 		}
 		return ResponseEntity.ok(result);
 	}
-	
+
 	@DeleteMapping("/delete/{id}")
 	@ResponseBody
-	public ResponseEntity<Map<String, Object>> deleteCustomer(@PathVariable("id") String id){
-		
+	public ResponseEntity<Map<String, Object>> deleteCustomer(@PathVariable("id") String id) {
+
 		Map<String, Object> result = new HashMap<>();
-		
+
 		try {
 			Usuario usuario = usuarioService.deleteUsuario(id);
 			if (usuario == null) {
@@ -130,5 +131,5 @@ public class UsuarioController {
 		}
 		return ResponseEntity.ok(result);
 	}
-	
+
 }
