@@ -12,7 +12,7 @@ import com.libreapp.store.product.repository.LibroRepository;
 public class LibroServiceImpl implements LibroService {
 
 	@Autowired
-	public LibroRepository repo;
+	private LibroRepository repo;
 	
 	@Override
 	public List<Libro> listAll() {
@@ -21,7 +21,7 @@ public class LibroServiceImpl implements LibroService {
 
 	@Override
 	public Libro createLibro(Libro libro) {
-		libro.setState("1");
+		libro.setState("CREATED");
 		return repo.save(libro);
 	}
 
@@ -40,7 +40,7 @@ public class LibroServiceImpl implements LibroService {
 		if (book == null) {
 			return null;
 		}
-		book.setState("2");
+		book.setState("ELIMINATE");
 		return repo.save(book);
 	}
 

@@ -12,7 +12,7 @@ import com.libreapp.store.customer.repository.DepartamentoRepository;
 public class DepartamentoServiceImpl implements DepartamentoService {
 
 	@Autowired
-	public DepartamentoRepository repo;
+	private DepartamentoRepository repo;
 	
 	@Override
 	public List<Departamento> listAll() {

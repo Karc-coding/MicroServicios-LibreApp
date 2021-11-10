@@ -13,7 +13,7 @@ import com.libreapp.store.customer.repository.UsuarioRepository;
 public class UsuarioServiceImpl implements UsuarioService {
 
 	@Autowired
-	public UsuarioRepository repo;
+	private UsuarioRepository repo;
 
 	@Override
 	public List<Usuario> listAll() {
