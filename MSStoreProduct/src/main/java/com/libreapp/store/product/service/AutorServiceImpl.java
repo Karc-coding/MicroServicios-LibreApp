@@ -12,7 +12,7 @@ import com.libreapp.store.product.repository.AutorRepository;
 public class AutorServiceImpl implements AutorService {
 
 	@Autowired
-	public AutorRepository repo;
+	private AutorRepository repo;
 	
 	@Override
 	public List<Autor> listAll() {

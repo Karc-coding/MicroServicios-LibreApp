@@ -12,7 +12,7 @@ import com.libreapp.store.product.repository.CategoriaRepository;
 public class CategoriaServiceImpl implements CategoriaService {
 
 	@Autowired
-	public CategoriaRepository repo;
+	private CategoriaRepository repo;
 	
 	@Override
 	public List<Categoria> listAll() {
