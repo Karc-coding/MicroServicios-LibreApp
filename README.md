@@ -8,12 +8,12 @@ Este es un proyecto personal que llamare LibreApp en donde realizare una aplicac
 - Git
 - Spring Tool Suite 4
 - MySQL
-- PostMan
+- Postman
 - VS Code
 
-## Vista General de Desarrollo
+## Vista General del Desarrollo
 - ~~Servicios Rest con Java~~
-- Service Discovery con Eureka Server
+- ~~Service Discovery con Eureka Server~~
 - Documentacion de MS con Swagger
 - Apigateway con Zuul
 - Integracion de MS con Feign
