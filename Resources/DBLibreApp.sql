@@ -37,6 +37,7 @@ CONSTRAINT categories_name_category_uk
 
 -----
 
+# INSERT INTO departments VALUES (ID, 'Nombre de Departamento');
 # INSERT INTO departments VALUES (DEFAULT, 'Nombre de Departamento');
 
 INSERT INTO departments
@@ -47,6 +48,7 @@ INSERT INTO departments
             
 --
 
+# INSERT INTO authors VALUES (ID, 'Nombre', 'Apellido', 'Apodo del autor');
 # INSERT INTO authors VALUES (DEFAULT, 'Nombre', 'Apellido', 'Apodo del autor');
 # INSERT INTO authors VALUES (DEFAULT, NULL, NULL, 'Apodo del autor');
 
@@ -62,6 +64,7 @@ INSERT INTO authors
 
 --
 
+# INSERT INTO categories VALUES (ID, 'Nombre de categoria');
 # INSERT INTO categories VALUES (DEFAULT, 'Nombre de categoria');
 
 INSERT INTO categories
@@ -146,7 +149,7 @@ CONSTRAINT book_sales_users_id_fk
 
 CREATE TABLE book_sale_details(
 id INT UNSIGNED AUTO_INCREMENT,
-book_sales_id INT UNSIGNED,
+book_sales_id INT UNSIGNED NOT NULL,
 books_id VARCHAR(36) NOT NULL,
 price DOUBLE NOT NULL,
 amount INT NOT NULL,
@@ -170,6 +173,8 @@ CONSTRAINT book_sale_details_book_id_fk
 #             si no lo hiciera, requeriria que siempre cambie los ID en las FK cada vez que reinicie la BD
 
 
+# INSERT INTO books VALUES (ID, 'Titulo de libro', 'Serie', 'Año', ID de categoria, Precio, Stock, ID de autor, 'ESTADO');
+
 # INSERT INTO books VALUES (DEFAULT, 'Titulo de libro', 'VJ00000', '2021', 0, 0.00, 0, 0, 'ESTADO');
 # INSERT INTO books VALUES (DEFAULT, 'Titulo de libro', 'VJ00000', NULL, NULL, 0.00, 0, NULL, 'ESTADO');
 
@@ -184,6 +189,8 @@ INSERT INTO books
     
 --
 
+# INSERT INTO users VALUES (ID, 'DNI', 'Nombre', 'Apellido', 'Email', 'Telefono', 'Direccion', 'Fecha de nacimiento', Fecha de registro, ID de departamento);
+
 # INSERT INTO users VALUES (DEFAULT, '99999999', 'Nombre', 'Apellido', 'email@example.com', 'Telefono', 'Direccion', '2021-01-01', DEFAULT, 0);
 # INSERT INTO users VALUES (DEFAULT, '99999999', 'Nombre', 'Apellido', 'email@example.com', NULL, NULL, NULL, DEFAULT, 0);
 
@@ -197,6 +204,8 @@ INSERT INTO users
 			('9c55be94-401a-11ec-815c-0a0027000006', '45786598', 'Colleen', 'Washington', 'tevin44@gmail.com', '958475128', NULL, NULL, DEFAULT, 15);
 
 --
+
+# INSERT INTO book_sales VALUES (ID, 'Numero de Factura', 'Descripcion', Fecha de registro, 'ID de Usuario', 'ESTADO');
 
 # INSERT INTO book_sales VALUES (DEFAULT, 'F-202100001', 'Descripcion', DEFAULT, 'ID de Usuario', 'ESTADO');
 # INSERT INTO book_sales VALUES (DEFAULT, 'F-202100001', NULL, DEFAULT, 'ID de Usuario', 'ESTADO');
@@ -215,6 +224,7 @@ INSERT INTO book_sales
 
 --
 
+# INSERT INTO book_sale_details VALUES (ID, ID de Book Sales, 'ID de Libro', Precio, Cantidad, Subtotal);
 # INSERT INTO book_sale_details VALUES (DEFAULT, 0, 'ID de Libro', 0.00, 0, 0.00);
 
 INSERT INTO book_sale_details

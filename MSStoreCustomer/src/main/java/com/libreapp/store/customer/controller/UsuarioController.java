@@ -131,5 +131,22 @@ public class UsuarioController {
 		}
 		return ResponseEntity.ok(result);
 	}
+	
+	//-----
+	
+	@GetMapping("/feign/{id}")
+	public ResponseEntity<Usuario> getCustomerFeign(@PathVariable("id") String id) {
+
+		Usuario usuario = usuarioService.getUsuario(id);
+
+		try {
+			if (usuario == null) {
+				return ResponseEntity.notFound().build();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ResponseEntity.ok(usuario);
+	}
 
 }

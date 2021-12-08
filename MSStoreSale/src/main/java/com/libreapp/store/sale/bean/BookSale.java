@@ -20,11 +20,13 @@ import javax.persistence.StoredProcedureParameter;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.libreapp.store.sale.client.model.Usuario;
 
 import lombok.Data;
 
@@ -64,6 +66,9 @@ public class BookSale implements Serializable {
 	@Size(min = 36, max = 36, message = "El campo usuario debe tener 36 caracteres")
 	@Column(name = "users_id", nullable = false, length = 36)
 	private String user;
+
+	@Transient
+	private Usuario usuario;
 	
 	@Valid
 	@NotEmpty(message = "El detalle no puede estar vacio")

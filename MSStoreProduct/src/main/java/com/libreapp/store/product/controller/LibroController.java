@@ -152,5 +152,22 @@ public class LibroController {
 		}
 		return ResponseEntity.ok(result);
 	}
+	
+	//-----
+	
+	@GetMapping("/feign/{id}")
+	public ResponseEntity<Libro> getProductFeign(@PathVariable("id") String id) {
+
+		Libro libro = libroService.getLibro(id);
+
+		try {
+			if (libro == null) {
+				return ResponseEntity.notFound().build();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ResponseEntity.ok(libro);
+	}
 
 }
