@@ -28,3 +28,6 @@ eureka:
     serviceUrl:
 #       defaultZone: http://127.0.0.1:8099/eureka/
        defaultZone: http://primary:8011/eureka/,http://secondary:8012/eureka/,http://tertiary:8013/eureka/
+# feign:
+#   hystrix:
+#     enabled: true

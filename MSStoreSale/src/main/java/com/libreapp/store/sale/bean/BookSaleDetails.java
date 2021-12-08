@@ -8,9 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
+
+import com.libreapp.store.sale.client.model.Libro;
 
 import lombok.Data;
 
@@ -35,6 +38,9 @@ public class BookSaleDetails implements Serializable {
 	@Size(min = 36, max = 36, message = "El campo usuario debe tener 36 caracteres")
 	@Column(name = "books_id", nullable = false, length = 36)
 	private String bookId;
+
+	@Transient
+	private Libro libro;
 	
 	@Digits(integer = 7, fraction = 2, message = "El campo precio acepta un maximo de 7 numeros enteros y 2 decimales")
 	@PositiveOrZero(message = "El campo precio debe tener numeros positivos")
@@ -51,6 +57,7 @@ public class BookSaleDetails implements Serializable {
 	@Column(nullable = false, scale = 2, precision = 9)
 	private double subtotal;
 
+	
 	public double getSubtotal() {
 		return this.subTotal();
 	}

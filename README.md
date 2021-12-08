@@ -14,9 +14,9 @@ Este es un proyecto personal que llamare LibreApp en donde realizare una aplicac
 ## Vista General del Desarrollo
 - ~~Servicios Rest con Java~~
 - ~~Service Discovery con Eureka Server~~
+- ~~Integracion de MS con Feign~~
 - Documentacion de MS con Swagger
 - Apigateway con Zuul
-- Integracion de MS con Feign
 - Configuration Server con Spring Cloud Config Server
 - Load Balancer con Ribbon
 - Circuit Breaker con HysTrix
