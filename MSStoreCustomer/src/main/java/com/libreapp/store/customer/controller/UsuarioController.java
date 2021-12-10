@@ -22,6 +22,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.libreapp.store.customer.bean.Usuario;
 import com.libreapp.store.customer.service.UsuarioService;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
 @RequestMapping("/customer")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -30,6 +34,13 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 
+	
+	@ApiOperation(value = "Get Customer by id", notes = "Respuesta del sistema y el cuerpo del customer")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@GetMapping("/{id}")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> getCustomer(@PathVariable("id") String id) {
@@ -50,6 +61,13 @@ public class UsuarioController {
 		return ResponseEntity.ok(result);
 	}
 
+	
+	@ApiOperation(value = "List All Customers", notes = "Respuesta del sistema y el listado de customers")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@GetMapping("/listAll")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> listAllCustomers() {
@@ -69,7 +87,14 @@ public class UsuarioController {
 		}
 		return ResponseEntity.ok(result);
 	}
+	
 
+	@ApiOperation(value = "Create Customer", notes = "Respuesta del sistema y el cuerpo del customer")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@PostMapping("/create")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> createCustomer(@RequestBody Usuario user) {
@@ -90,6 +115,13 @@ public class UsuarioController {
 		return ResponseEntity.ok(result);
 	}
 
+	
+	@ApiOperation(value = "Update Customer", notes = "Respuesta del sistema y el cuerpo del customer")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@PutMapping("/update/{id}")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> updateCustomer(@PathVariable("id") String id,
@@ -111,7 +143,14 @@ public class UsuarioController {
 		}
 		return ResponseEntity.ok(result);
 	}
+	
 
+	@ApiOperation(value = "Delete Customer by id", notes = "Respuesta del sistema y el cuerpo del customer")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@DeleteMapping("/delete/{id}")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> deleteCustomer(@PathVariable("id") String id) {
@@ -134,6 +173,12 @@ public class UsuarioController {
 	
 	//-----
 	
+	@ApiOperation(value = "Get Customer by id", notes = "Cuerpo del customer")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@GetMapping("/feign/{id}")
 	public ResponseEntity<Usuario> getCustomerFeign(@PathVariable("id") String id) {
 
