@@ -1,3 +1,5 @@
+spring:  boot:    admin:      client:        url:        - http://localhost:8089        instance:          prefer-ip: true
+
 info:
   project:
     name: ms-store-sale
@@ -9,3 +11,4 @@ management:
       base-path: '/sale/actuator'
       exposure:
         include: '*'
+        
