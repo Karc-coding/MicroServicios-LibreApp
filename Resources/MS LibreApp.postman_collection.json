@@ -108,7 +108,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"dni\": \"85479562\",\r\n    \"firstName\": \"Kevin\",\r\n    \"lastName\": \"Rojas\",\r\n    \"email\": \"karc@gmail.com\",\r\n    \"phone\": \"958462875\",\r\n    \"address\": \"Un lugar\",\r\n    \"dateBirth\": \"2002-01-10\",\r\n    \"dateRegister\": \"2021-11-01T18:16:24.000+00:00\",\r\n    \"departamento\": {\r\n        \"id\": 13,\r\n        \"name\": \"La Libertad\"\r\n    }\r\n}",
+									"raw": "{\r\n    \"dni\": \"85479562\",\r\n    \"firstName\": \"Kevin\",\r\n    \"lastName\": \"Rojas\",\r\n    \"email\": \"karc@gmail.com\",\r\n    \"phone\": \"958462875\",\r\n    \"address\": \"Un lugar\",\r\n    \"dateBirth\": \"2002-01-10\",\r\n    \"departamento\": {\r\n        \"id\": 13,\r\n        \"name\": \"La Libertad\"\r\n    },\r\n    \"dateRegister\": \"2021-11-01T18:16:24.000+00:00\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"

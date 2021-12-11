@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
@@ -24,8 +25,13 @@ public class Categoria implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@ApiModelProperty(name = "id", value = "ID de categoria", example = "31", notes = "ID de categoria", dataType = "long",
+					position = 0, required = true)
 	private Long id;
 	
+
+	@ApiModelProperty(name = "name", value = "Nombre", example = "Horror", notes = "Nombre", dataType = "string",
+					position = 1, required = true)
 	@Size(max = 75, message = "El campo categoria acepta un maximo de 75 caracteres")
 	@Column(name = "name_category", unique = true, nullable = false, length = 75)
 	private String name;
