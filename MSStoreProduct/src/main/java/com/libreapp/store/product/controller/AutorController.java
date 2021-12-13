@@ -18,6 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.libreapp.store.product.bean.Autor;
 import com.libreapp.store.product.service.AutorService;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
 @RequestMapping("/author")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -26,6 +30,13 @@ public class AutorController {
 	@Autowired
 	private AutorService autorService;
 
+
+	@ApiOperation(value = "Get Author by id", notes = "Respuesta del sistema y el cuerpo del author")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@GetMapping("/{id}")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> getAuthor(@PathVariable("id") Long id) {
@@ -45,6 +56,13 @@ public class AutorController {
 		return ResponseEntity.ok(result);
 	}
 
+
+	@ApiOperation(value = "List All Authors", notes = "Respuesta del sistema y el listado de authors")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@GetMapping("/listAll")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> listAllAuthor() {

@@ -27,6 +27,10 @@ import com.libreapp.store.sale.bean.BookSale;
 import com.libreapp.store.sale.bean.BookSaleDetails;
 import com.libreapp.store.sale.service.BookSaleService;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
 @RequestMapping("/sale")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -35,6 +39,13 @@ public class BookSaleController {
 	@Autowired
 	private BookSaleService bookSaleService;
 
+
+	@ApiOperation(value = "Get Book Sale by id", notes = "Respuesta del sistema y el cuerpo del book sale")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@GetMapping("/{id}")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> getBookSale(@PathVariable("id") Long id) {
@@ -55,6 +66,13 @@ public class BookSaleController {
 		return ResponseEntity.ok(result);
 	}
 
+	
+	@ApiOperation(value = "List All Book Sale", notes = "Respuesta del sistema y el listado de book sales")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@GetMapping("/listAll")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> listAllBookSale() {
@@ -75,6 +93,13 @@ public class BookSaleController {
 		return ResponseEntity.ok(result);
 	}
 
+
+	@ApiOperation(value = "Create Book Sale", notes = "Respuesta del sistema y el cuerpo del book sale")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@PostMapping("/create")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> createBookSale(@RequestBody BookSale bookSale) {
@@ -113,6 +138,13 @@ public class BookSaleController {
 		return ResponseEntity.ok(result);
 	}
 
+
+	@ApiOperation(value = "Update Book Sale", notes = "Respuesta del sistema y el cuerpo del book sale")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@PutMapping("/update/{id}")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> updateBookSale(@PathVariable("id") Long id,
@@ -144,6 +176,13 @@ public class BookSaleController {
 		return ResponseEntity.ok(result);
 	}
 
+
+	@ApiOperation(value = "Delete Book Sale by id", notes = "Respuesta del sistema y el cuerpo del book sale")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@DeleteMapping("/delete/{id}")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> deleteBookSale(@PathVariable("id") Long id) {
@@ -166,6 +205,12 @@ public class BookSaleController {
 
 //---
 
+	@ApiOperation(value = "List All Book Sale by state", notes = "Respuesta del sistema y el listado de book sales")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@GetMapping("/listAllForState/{state}")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> listAllForStateBookSale(@PathVariable("state") String state) {
@@ -186,6 +231,13 @@ public class BookSaleController {
 		return ResponseEntity.ok(result);
 	}
 	
+
+	@ApiOperation(value = "Get Book Sale by number invoice", notes = "Respuesta del sistema y el cuerpo del book sale")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@GetMapping("/getNumberInvoice/{numberInvoice}")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> getBookSaleForNumberInvoice(@PathVariable("numberInvoice") String numberInvoice) {

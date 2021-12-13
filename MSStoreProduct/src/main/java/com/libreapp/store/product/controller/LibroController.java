@@ -22,6 +22,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.libreapp.store.product.bean.Libro;
 import com.libreapp.store.product.service.LibroService;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
 @RequestMapping("/book")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -30,6 +34,13 @@ public class LibroController {
 	@Autowired
 	private LibroService libroService;
 
+
+	@ApiOperation(value = "Get Product by id", notes = "Respuesta del sistema y el cuerpo del product")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@GetMapping("/{id}")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> getProduct(@PathVariable("id") String id) {
@@ -50,6 +61,13 @@ public class LibroController {
 		return ResponseEntity.ok(result);
 	}
 
+
+	@ApiOperation(value = "List All Products", notes = "Respuesta del sistema y el listado de products")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@GetMapping("/listAll")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> listAllProducts() {
@@ -70,6 +88,13 @@ public class LibroController {
 		return ResponseEntity.ok(result);
 	}
 
+
+	@ApiOperation(value = "Create Product", notes = "Respuesta del sistema y el cuerpo del product")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@PostMapping("/create")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> createProduct(@RequestBody Libro book) {
@@ -90,6 +115,13 @@ public class LibroController {
 		return ResponseEntity.ok(result);
 	}
 
+
+	@ApiOperation(value = "Update Product", notes = "Respuesta del sistema y el cuerpo del product")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@PutMapping("/update/{id}")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> updateProduct(@PathVariable("id") String id, @RequestBody Libro book) {
@@ -111,6 +143,13 @@ public class LibroController {
 		return ResponseEntity.ok(result);
 	}
 
+
+	@ApiOperation(value = "Delete Product by id", notes = "Respuesta del sistema y el cuerpo del product")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@DeleteMapping("/delete/{id}")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> deleteProduct(@PathVariable("id") String id) {
@@ -133,6 +172,12 @@ public class LibroController {
 
 //	---
 
+	@ApiOperation(value = "List All Products Active", notes = "Respuesta del sistema y el listado de products active")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@GetMapping("/listAllActive")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> listAllActiveProducts() {
@@ -151,6 +196,29 @@ public class LibroController {
 			e.printStackTrace();
 		}
 		return ResponseEntity.ok(result);
+	}
+	
+	//-----
+	
+	@ApiOperation(value = "Get Product by id", notes = "Cuerpo del product")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
+	@GetMapping("/feign/{id}")
+	public ResponseEntity<Libro> getProductFeign(@PathVariable("id") String id) {
+
+		Libro libro = libroService.getLibro(id);
+
+		try {
+			if (libro == null) {
+				return ResponseEntity.notFound().build();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ResponseEntity.ok(libro);
 	}
 
 }

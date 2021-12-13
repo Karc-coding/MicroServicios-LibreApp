@@ -18,6 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.libreapp.store.customer.bean.Departamento;
 import com.libreapp.store.customer.service.DepartamentoService;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
 @RequestMapping("/department")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -26,6 +30,13 @@ public class DepartamentoController {
 	@Autowired
 	private DepartamentoService departamentoService;
 
+	
+	@ApiOperation(value = "Get Department by id", notes = "Respuesta del sistema y el cuerpo del department")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@GetMapping("/{id}")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> getDepartment(@PathVariable("id") Long id) {
@@ -45,6 +56,13 @@ public class DepartamentoController {
 		return ResponseEntity.ok(result);
 	}
 
+
+	@ApiOperation(value = "List All Departments", notes = "Respuesta del sistema y el listado de departments")
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "OK"),
+			@ApiResponse(code = 400, message = "Bad Request"),
+			@ApiResponse(code = 500, message = "Error del sistema")
+	})
 	@GetMapping("/listAll")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> listAllDepartments() {

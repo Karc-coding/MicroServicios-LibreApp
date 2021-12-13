@@ -16,5 +16,6 @@ public interface BookSaleService {
 	public abstract BookSale getBookSaleForNumberInvoice(String numberInvoice);
 	
 	public abstract String generateNumberInvoice();
+	public abstract BookSale getClientFeign(Long id);
 	
 }

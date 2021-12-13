@@ -14,10 +14,10 @@ Este es un proyecto personal que llamare LibreApp en donde realizare una aplicac
 ## Vista General del Desarrollo
 - ~~Servicios Rest con Java~~
 - ~~Service Discovery con Eureka Server~~
-- Documentacion de MS con Swagger
+- ~~Integracion de MS con Feign~~
+- ~~Documentacion de MS con Swagger~~
+- ~~Administracion de estados con Spring Boot Admin y Actuator~~
 - Apigateway con Zuul
-- Integracion de MS con Feign
 - Configuration Server con Spring Cloud Config Server
 - Load Balancer con Ribbon
 - Circuit Breaker con HysTrix
-- Administracion de estados con Spring Boot Admin y Actuator

@@ -52,6 +52,27 @@
 							"response": []
 						},
 						{
+							"name": "Get Customer Feign",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8088/customer/feign/958afcfe-401a-11ec-815c-0a0027000006",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"customer",
+										"feign",
+										"958afcfe-401a-11ec-815c-0a0027000006"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Create Customer",
 							"request": {
 								"method": "POST",
@@ -87,7 +108,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"dni\": \"85479562\",\r\n    \"firstName\": \"Kevin\",\r\n    \"lastName\": \"Rojas\",\r\n    \"email\": \"karc@gmail.com\",\r\n    \"phone\": \"958462875\",\r\n    \"address\": \"Un lugar\",\r\n    \"dateBirth\": \"2002-01-10\",\r\n    \"dateRegister\": \"2021-11-01T18:16:24.000+00:00\",\r\n    \"departamento\": {\r\n        \"id\": 13,\r\n        \"name\": \"La Libertad\"\r\n    }\r\n}",
+									"raw": "{\r\n    \"dni\": \"85479562\",\r\n    \"firstName\": \"Kevin\",\r\n    \"lastName\": \"Rojas\",\r\n    \"email\": \"karc@gmail.com\",\r\n    \"phone\": \"958462875\",\r\n    \"address\": \"Un lugar\",\r\n    \"dateBirth\": \"2002-01-10\",\r\n    \"departamento\": {\r\n        \"id\": 13,\r\n        \"name\": \"La Libertad\"\r\n    },\r\n    \"dateRegister\": \"2021-11-01T18:16:24.000+00:00\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -95,7 +116,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8088/customer/update/f6cffc29-836b-489a-94a3-552b4a4ae437",
+									"raw": "http://localhost:8088/customer/update/e377b0b3-6b3a-4932-8453-be7e714b2eb8",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -104,7 +125,7 @@
 									"path": [
 										"customer",
 										"update",
-										"f6cffc29-836b-489a-94a3-552b4a4ae437"
+										"e377b0b3-6b3a-4932-8453-be7e714b2eb8"
 									]
 								}
 							},
@@ -116,7 +137,7 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8088/customer/delete/f6cffc29-836b-489a-94a3-552b4a4ae437",
+									"raw": "http://localhost:8088/customer/delete/e377b0b3-6b3a-4932-8453-be7e714b2eb8",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -125,7 +146,7 @@
 									"path": [
 										"customer",
 										"delete",
-										"f6cffc29-836b-489a-94a3-552b4a4ae437"
+										"e377b0b3-6b3a-4932-8453-be7e714b2eb8"
 									]
 								}
 							},
@@ -247,6 +268,27 @@
 							"response": []
 						},
 						{
+							"name": "Get Product Feign",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8087/book/feign/5b533367-401a-11ec-815c-0a0027000006",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8087",
+									"path": [
+										"book",
+										"feign",
+										"5b533367-401a-11ec-815c-0a0027000006"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Create Product",
 							"request": {
 								"method": "POST",
@@ -290,7 +332,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8087/book/update/a72d1e71-cb7e-425a-ada0-719e7a1fdae0",
+									"raw": "http://localhost:8087/book/update/66ee61d0-30dd-47bf-a21f-3abe07a95aa5",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -299,7 +341,7 @@
 									"path": [
 										"book",
 										"update",
-										"a72d1e71-cb7e-425a-ada0-719e7a1fdae0"
+										"66ee61d0-30dd-47bf-a21f-3abe07a95aa5"
 									]
 								}
 							},
@@ -311,7 +353,7 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8087/book/delete/a72d1e71-cb7e-425a-ada0-719e7a1fdae0",
+									"raw": "http://localhost:8087/book/delete/66ee61d0-30dd-47bf-a21f-3abe07a95aa5",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -320,7 +362,7 @@
 									"path": [
 										"book",
 										"delete",
-										"a72d1e71-cb7e-425a-ada0-719e7a1fdae0"
+										"66ee61d0-30dd-47bf-a21f-3abe07a95aa5"
 									]
 								}
 							},
