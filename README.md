@@ -17,7 +17,7 @@ Este es un proyecto personal que llamare LibreApp en donde realizare una aplicac
 - ~~Integracion de MS con Feign~~
 - ~~Documentacion de MS con Swagger~~
 - ~~Administracion de estados con Spring Boot Admin y Actuator~~
-- Apigateway con Zuul
+- ~~Apigateway con Zuul~~
 - Configuration Server con Spring Cloud Config Server
 - Load Balancer con Ribbon
 - Circuit Breaker con HysTrix
