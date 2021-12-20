@@ -28,6 +28,14 @@ eureka:
     serviceUrl:
 #       defaultZone: http://127.0.0.1:8099/eureka/
        defaultZone: http://primary:8011/eureka/,http://secondary:8012/eureka/,http://tertiary:8013/eureka/
-# feign:
-#   hystrix:
-#     enabled: true
+
+
+#hystrix:
+#  dashboard:
+#    proxy-stream-allow-list: '*'
+#
+#feign:#  circuitbreaker:#    enabled: true
+#  hystrix:#    enabled: true
+#  client:#    config:#      default: #        connect-timeout: 5000
+#        read-timeout: 5000
+#        logger-level: basic

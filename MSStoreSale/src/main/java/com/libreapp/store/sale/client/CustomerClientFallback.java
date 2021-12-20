@@ -10,8 +10,7 @@ public class CustomerClientFallback implements CustomerClient {
 
 	@Override
 	public ResponseEntity<Usuario> getCustomerFeign(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		return ResponseEntity.ok(new Usuario());
 	}
 
 }

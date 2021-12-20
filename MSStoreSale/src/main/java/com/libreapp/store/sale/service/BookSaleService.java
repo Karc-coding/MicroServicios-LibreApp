@@ -18,4 +18,6 @@ public interface BookSaleService {
 	public abstract String generateNumberInvoice();
 	public abstract BookSale getClientFeign(Long id);
 	
+	public abstract BookSale defaultGetBookSale(Long id);
+	
 }

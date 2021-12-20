@@ -10,8 +10,7 @@ public class ProductClientFallback implements ProductClient {
 
 	@Override
 	public ResponseEntity<Libro> getProductFeign(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		return ResponseEntity.ok(new Libro());
 	}
 
 }

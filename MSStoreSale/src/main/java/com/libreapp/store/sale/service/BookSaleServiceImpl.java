@@ -20,6 +20,8 @@ import com.libreapp.store.sale.client.ProductClient;
 import com.libreapp.store.sale.client.model.Libro;
 import com.libreapp.store.sale.client.model.Usuario;
 import com.libreapp.store.sale.repository.BookSaleRepository;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 
 import lombok.RequiredArgsConstructor;
 
@@ -68,9 +70,21 @@ public class BookSaleServiceImpl implements BookSaleService {
 		return repo.save(bs);
 	}
 
+	@HystrixCommand(fallbackMethod = "defaultGetBookSale", commandProperties = {
+//			@HystrixProperty(name = "execution.isolation.thread.timeOutInMilliseconds", value = "500"),
+			@HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"),
+			@HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "40"),
+			@HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds", value = "1000"),
+			@HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "20000")
+	})
 	@Override
 	public BookSale getBookSale(Long id) {
-		return getClientFeign(id);
+		BookSale bs = repo.findById(id).orElse(null);
+		if (bs == null) {
+			return null;
+		}
+		
+		return getClientFeign(bs.getId());
 	}
 
 	@Override
@@ -84,6 +98,7 @@ public class BookSaleServiceImpl implements BookSaleService {
 		if (bs == null) {
 			return null;
 		}
+		
 		return getClientFeign(bs.getId());
 	}
 
@@ -120,4 +135,8 @@ public class BookSaleServiceImpl implements BookSaleService {
 		return null;
 	}
 
+	@Override
+	public BookSale defaultGetBookSale(Long id) {
+		return null;
+	}
 }
